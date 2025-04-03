@@ -1,31 +1,40 @@
+import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export default async function handler(req: any, res: any) {
-    if (req.method === 'GET') {
-        try {
-            const decks = await prisma.deck.findMany({ include: { cards: true } });
-            return res.status(200).json(decks);
-        } catch (error) {
-            return res.status(500).json({ error: 'Error fetching decks' });
-        }
-    } else if (req.method === 'POST') {
-        const { name, cards } = req.body;
-        try {
-            const deck = await prisma.deck.create({
-                data: {
-                    name,
-                    cards: cards && Array.isArray(cards) ? { create: cards } : undefined,
-                },
-                include: { cards: true },
-            });
-            return res.status(201).json(deck);
-        } catch (error) {
-            return res.status(500).json({ error: 'Error creating deck' });
-        }
-    } else {
-        res.setHeader('Allow', ['GET', 'POST']);
-        return res.status(405).end(`Method ${req.method} Not Allowed`);
-    }
+export async function GET() {
+  // Get all decks
+  const decks = await prisma.deck.findMany({
+    include: { cards: true },
+  });
+  return NextResponse.json(decks);
+}
+
+export async function POST(req: NextRequest) {
+  // Create a new deck
+  const { name } = await req.json();
+  const newDeck = await prisma.deck.create({
+    data: { name },
+  });
+  return NextResponse.json(newDeck, { status: 201 });
+}
+
+export async function DELETE(req: NextRequest) {
+  // Delete a deck
+  const { id } = await req.json();
+  await prisma.deck.delete({
+    where: { id },
+  });
+  return NextResponse.json(null, { status: 204 });
+}
+
+export async function PUT(req: NextRequest) {
+  // Update a deck
+  const { id, name } = await req.json();
+  const updatedDeck = await prisma.deck.update({
+    where: { id },
+    data: { name },
+  });
+  return NextResponse.json(updatedDeck);
 }
