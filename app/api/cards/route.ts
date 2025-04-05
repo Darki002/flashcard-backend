@@ -3,7 +3,21 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get('id');
+
+  if (id) {
+    // Get card by ID
+    const card = await prisma.card.findUnique({
+      where: { id: Number(id) },
+    });
+    if (card) {
+      return NextResponse.json(card);
+    } else {
+      return NextResponse.json({ error: 'Card not found' }, { status: 404 });
+    }
+  }
   // Get all cards
   const cards = await prisma.card.findMany();
   return NextResponse.json(cards);
