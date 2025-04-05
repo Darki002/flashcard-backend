@@ -4,6 +4,21 @@ import {PrismaClient} from '@prisma/client';
 const prisma = new PrismaClient();
 
 export async function GET(req: NextRequest) {
+    const {searchParams} = new URL(req.url);
+    const id = searchParams.get('id');
+
+    if (id) {
+        // Get deck by ID
+        const deck = await prisma.deck.findUnique({
+            where: {id: Number(id)},
+            include: {cards: true},
+        });
+        if (deck) {
+            return NextResponse.json(deck);
+        } else {
+            return NextResponse.json({error: 'Deck not found'}, {status: 404});
+        }
+    }
     // Get all decks
     const decks = await prisma.deck.findMany({
         include: {cards: true},
