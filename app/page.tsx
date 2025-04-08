@@ -44,10 +44,10 @@ export default function Home() {
                     </div>
                     <div className={styles.heroImage}>
                         <Image
-                            src="/logo.png"
+                            src="/app-showcase.png"
                             alt="SimpleCards App"
                             width={300}
-                            height={300}
+                            height={600}
                             className={styles.appShowcase}
                         />
                     </div>
