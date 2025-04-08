@@ -7,6 +7,24 @@
   background-color: #f9f9fb;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container,
+.navbar,
+.header,
+.hero,
+.featuresSection,
+.screenshotSection,
+.screenshotContainer,
+.screenshot,
+.downloadSection,
+.footer {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* Navbar Styles */
@@ -20,6 +38,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  width: 100%;
 }
 
 .logo {
@@ -29,11 +48,13 @@
   font-weight: 600;
   font-size: 1.25rem;
   color: #635f9c;
+  margin: 0;
 }
 
 .navLinks {
   display: flex;
   gap: 2rem;
+  margin: 0;
 }
 
 .navLinks a {
@@ -158,6 +179,7 @@
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0;
 }
 
 .featureCard:hover {
@@ -189,6 +211,7 @@
 .featureCard p {
   color: #666;
   line-height: 1.6;
+  margin: 0;
 }
 
 /* Screenshot Section */
@@ -211,8 +234,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
   transition: transform 0.3s ease;
+  margin: 0.5rem;
 }
 
 .screenshot:hover {
@@ -242,6 +265,7 @@
   padding: 5rem 5%;
   color: #fff;
   text-align: center;
+  width: 100%;
 }
 
 .downloadContent {
@@ -285,6 +309,7 @@
   color: rgba(255, 255, 255, 0.8);
   padding: 3rem 5%;
   margin-top: auto;
+  width: 100%;
 }
 
 .footerContent {
@@ -307,6 +332,7 @@
 .footerLinks {
   display: flex;
   gap: 2rem;
+  margin: 0;
 }
 
 .footerLinks a {
@@ -368,4 +394,11 @@
     flex-direction: column;
     align-items: center;
   }
+}
+
+.bodyReset {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
