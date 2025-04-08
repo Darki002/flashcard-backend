@@ -41,7 +41,7 @@ export async function DELETE(req: NextRequest) {
     await prisma.deck.delete({
         where: {id},
     });
-    return NextResponse.json(null, {status: 204});
+    return new NextResponse(null, {status: 204});
 }
 
 export async function PUT(req: NextRequest) {
