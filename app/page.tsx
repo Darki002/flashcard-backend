@@ -44,7 +44,7 @@ export default function Home() {
                     </div>
                     <div className={styles.heroImage}>
                         <Image
-                            src="/app-showcase.png"
+                            src="/logo.png"
                             alt="SimpleCards App"
                             width={300}
                             height={600}
