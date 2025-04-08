@@ -44,7 +44,7 @@ export default function Home() {
                     </div>
                     <div className={styles.heroImage}>
                         <Image
-                            src="/logo.png"
+                            src="/showcase.png"
                             alt="SimpleCards App"
                             width={300}
                             height={300}
@@ -98,16 +98,16 @@ export default function Home() {
 
                     <div className={styles.screenshotContainer}>
                         <div className={styles.screenshot}>
-                            <Image src="/screenshot1.png" alt="Deck Übersicht" width={250} height={450} className={styles.screenshotImage} />
+                            <Image src="/main.png" alt="Startseite" width={250} height={450} className={styles.screenshotImage} />
+                            <p>Startseite</p>
+                        </div>
+                        <div className={styles.screenshot}>
+                            <Image src="/study.png" alt="Kartenansicht" width={250} height={450} className={styles.screenshotImage} />
+                            <p>Flashcards</p>
+                        </div>
+                        <div className={styles.screenshot}>
+                            <Image src="/deck.png" alt="Deck Übersicht" width={250} height={450} className={styles.screenshotImage} />
                             <p>Deck Übersicht</p>
-                        </div>
-                        <div className={styles.screenshot}>
-                            <Image src="/screenshot2.png" alt="Kartenansicht" width={250} height={450} className={styles.screenshotImage} />
-                            <p>Lernmodus</p>
-                        </div>
-                        <div className={styles.screenshot}>
-                            <Image src="/screenshot3.png" alt="Karten erstellen" width={250} height={450} className={styles.screenshotImage} />
-                            <p>Karten erstellen</p>
                         </div>
                     </div>
                 </section>
