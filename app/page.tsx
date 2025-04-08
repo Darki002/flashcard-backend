@@ -47,7 +47,7 @@ export default function Home() {
                             src="/logo.png"
                             alt="SimpleCards App"
                             width={300}
-                            height={600}
+                            height={300}
                             className={styles.appShowcase}
                         />
                     </div>
