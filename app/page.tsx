@@ -36,7 +36,7 @@ export default function Home() {
           </div>
 
           {/* Download Button für APK */}
-          <a href="/SimpleCards.apk" download className={styles.downloadButton}>
+          <a href="https://github.com/LlynBaum/simple-cards/releases/latest/download/simple-cards.apk" download className={styles.downloadButton}>
             APK Herunterladen
           </a>
         </main>
